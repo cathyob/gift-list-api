@@ -16,10 +16,10 @@ class GifteesController < ApplicationController
 
   # POST /giftees
   def create
-    @giftee = Giftee.new(giftee_params)
+    @giftee = current_user.giftees.new(giftee_params)
 
     if @giftee.save
-      render json: @giftee, status: :created, location: @giftee
+      render json: @giftee, status: :created
     else
       render json: @giftee.errors, status: :unprocessable_entity
     end
@@ -39,14 +39,15 @@ class GifteesController < ApplicationController
     @giftee.destroy
   end
 
-  private
   # Use callbacks to share common setup or constraints between actions.
   def set_giftee
     @giftee = Giftee.find(params[:id])
   end
+  private :set_giftee
 
   # Only allow a trusted parameter "white list" through.
   def giftee_params
-    params.require(:giftee).permit(:users_id, :name)
+    params.require(:giftee).permit(:name, :id, :user_id)
   end
+  private :giftee_params
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :update, :destroy]
 
@@ -39,13 +40,14 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def note_params
-      params.require(:note).permit(:giftee_id, :favorites, :sizes, :general)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_note
+    @note = Note.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def note_params
+    params.require(:note).permit(:giftee_id, :favorites, :sizes, :general)
+  end
 end

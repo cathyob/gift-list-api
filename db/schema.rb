@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217144854) do
+ActiveRecord::Schema.define(version: 20170217153900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(version: 20170217144854) do
   end
 
   create_table "giftees", force: :cascade do |t|
-    t.integer  "users_id"
+    t.integer  "user_id",    null: false
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_giftees_on_users_id", using: :btree
+    t.index ["user_id"], name: "index_giftees_on_user_id", using: :btree
   end
 
   create_table "ideas", force: :cascade do |t|
     t.integer  "giftee_id"
-    t.string   "title"
+    t.string   "title",      null: false
     t.string   "where"
     t.float    "price"
     t.string   "notes"
@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 20170217144854) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.integer  "giftee_id"
-    t.string   "favorites"
-    t.string   "sizes"
-    t.string   "general"
+    t.integer  "giftee_id",  null: false
+    t.text     "favorites"
+    t.text     "sizes"
+    t.text     "general"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["giftee_id"], name: "index_notes_on_giftee_id", using: :btree
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20170217144854) do
   end
 
   add_foreign_key "examples", "users"
-  add_foreign_key "giftees", "users", column: "users_id"
+  add_foreign_key "giftees", "users"
   add_foreign_key "ideas", "giftees"
   add_foreign_key "notes", "giftees"
 end

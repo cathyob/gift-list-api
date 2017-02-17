@@ -2,7 +2,7 @@
 class CreateGiftees < ActiveRecord::Migration[5.0]
   def change
     create_table :giftees do |t|
-      t.references :users, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.string :name
 
       t.timestamps
