@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170217153900) do
 
   create_table "giftees", force: :cascade do |t|
     t.integer  "user_id",    null: false
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_giftees_on_user_id", using: :btree

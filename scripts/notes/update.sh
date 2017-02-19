@@ -8,9 +8,9 @@ curl "${API}${URL_PATH}" \
 --header "Content-Type: application/JSON" \
 --data '{
   "note": {
-    "favorites": "'"${reading, chocolate with fruit filling, chicos, dressbarn}"'",
-    "sizes": "'"${bottoms - 10, tops - medium, shoes - 6}"'",
-    "general": "'"${she likes to wear blues and purples, she cannot wear any heels}"'"
+    "favorites": "'"${FAVORITE}"'",
+    "sizes": "'"${SIZES}"'",
+    "general": "'"${GENERAL}"'"
   }
 }'
 # --header "Authorization: Token token=$TOKEN" echo

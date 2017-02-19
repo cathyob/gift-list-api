@@ -8,7 +8,7 @@ curl "${API}${URL_PATH}" \
 --header "Content-Type: application/JSON" \
 --data '{
   "giftee": {
-    "name": "'"${Bobbi}"'"
+    "name": "'"${NAME}"'"
   }
 }'
 # --header "Authorization: Token token=$TOKEN" echo

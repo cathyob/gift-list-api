@@ -8,11 +8,11 @@ curl "${API}${URL_PATH}" \
 --header "Content-Type: application/JSON" \
 --data '{
   "idea": {
-    "title": "'"${a new book}"'",
-    "where": "'"${undecided}"'",
-    "price": "'"${20.00}"'",
-    "notes": "'"${sci-fi or fantasy?}"'",
-    "status": "'"${0}"'"
+    "title": "'"${TITLE}"'",
+    "where": "'"${WHERE}"'",
+    "price": "'"${PRICE}"'",
+    "notes": "'"${NOTES}"'",
+    "status": "'"${STATUS}"'"
   }
 }'
 # --header "Authorization: Token token=$TOKEN" echo
