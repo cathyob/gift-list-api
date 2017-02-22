@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/note/:id' => 'notes#show'
   patch '/note/:id' => 'notes#update'
   get '/idea/:id' => 'ideas#show'
-  post '/idea' => 'ideas#create'
+  post '/idea/' => 'ideas#create'
   patch '/idea/:id' => 'ideas#update'
   # resources :users, only: [:index, :show]
 end
