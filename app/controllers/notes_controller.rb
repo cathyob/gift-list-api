@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-class NotesController < ApplicationController
-  before_action :authenticate
+class NotesController < ProtectedController
 
   # GET /notes/1
   def show

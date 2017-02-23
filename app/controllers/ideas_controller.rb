@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-class IdeasController < ApplicationController
-  before_action :authenticate
+class IdeasController < ProtectedController
   # NOTE - not allowing DESTROY because we do not want the idea to be fully
   # deleted. UPDATE will allow a status change from pending to removed
   # this will later allow sorting and adding another status of purchased

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-class GifteesController < ApplicationController
-  before_action :authenticate
+class GifteesController < ProtectedController
 
   # GET /giftees
   def index
@@ -38,6 +37,16 @@ class GifteesController < ApplicationController
     # in this case see if the user belongs to them, then delete
     giftee = @current_user.giftees.find(params[:id])
     if !giftee.nil?
+
+      if !giftee.note.nil?
+        giftee.note.destroy
+      end
+
+      # way 2
+      giftee.ideas.each do |item|
+        item.destroy
+      end
+
       giftee.destroy
       render status: :no_content
     else
